@@ -28,7 +28,7 @@
             --accent-soft: #3b82f6;
             --accent-glow: #eef2ff;
             
-            /* ✨ NEW distinct border theme for Boulder Ops card ✨ */
+            /* distinct border theme for Boulder Ops card */
             --boulder-border-gradient: linear-gradient(135deg, #d97706, #b45309, #f59e0b);
             --boulder-bg-light: #fffdf9;
             --boulder-accent: #b45309;
@@ -89,14 +89,14 @@
             scrollbar-width: thin;
         }
 
-        /* 5-card row - unified neutral elegant style */
+        /* 5-card row - unified neutral elegant style with solid black border */
         .machines {
             display: grid;
             grid-template-columns: repeat(4, 1fr) 1.25fr;
             gap: 18px;
         }
 
-        /* SINGLE LINE BLACK BORDER FOR ALL TOP 5 BOXES - exactly as requested */
+        /* SINGLE LINE BLACK BORDER FOR ALL TOP 5 BOXES */
         .mach-box {
             background: var(--card-white);
             border-radius: 28px;
@@ -104,7 +104,6 @@
             text-align: center;
             transition: all 0.25s ease;
             box-shadow: var(--shadow-sm);
-            /* ✨ UPDATED: Single solid black border for all 5 cards ✨ */
             border: 1px solid #000000;
             position: relative;
             backdrop-filter: blur(0px);
@@ -113,14 +112,8 @@
         .mach-box:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
-            /* keep black border on hover, just subtle enhancement */
             border-color: #000000;
             background: #ffffff;
-        }
-
-        /* remove the bottom gradient line that was present before */
-        .mach-box::after {
-            display: none;
         }
 
         .mach-icon {
@@ -237,13 +230,12 @@
             gap: 20px;
         }
 
-        /* ✨✨✨ MODERN CARD with DISTINCT BORDER for Boulder Ops & Dispatch ✨✨✨ */
+        /* MODERN CARD with DISTINCT BORDER for Boulder Ops & Dispatch */
         .merged-ops-prod {
             background: var(--boulder-bg-light);
             border-radius: 32px;
             padding: 20px 22px;
             box-shadow: var(--shadow-md);
-            /* distinct double-gradient border effect */
             border: 1px solid rgba(245, 158, 11, 0.4);
             border-top: 3px solid #f59e0b;
             border-bottom: 3px solid #d97706;
@@ -258,7 +250,6 @@
             transform: translateY(-2px);
         }
 
-        /* glowing accent corner for extra modern feel */
         .merged-ops-prod::before {
             content: '';
             position: absolute;
@@ -370,6 +361,7 @@
             font-weight: 800;
             color: #7b341e;
         }
+        /* NO unit symbol class anymore - completely removed */
 
         /* stat cards with modern touch */
         .stat-card {
@@ -410,14 +402,13 @@
             opacity: 0.7;
         }
 
-        /* map container modern - SINGLE LINE NAVY BLUE BORDER as requested */
+        /* map container with single navy blue border */
         .map-container {
             background: #ffffff;
             border-radius: 32px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
             transition: all 0.25s;
-            /* ✨ UPDATED: Single solid navy blue border (#1a2c3f) ✨ */
             border: 1px solid #1a2c3f;
             display: flex;
             flex-direction: column;
@@ -580,7 +571,7 @@
     </div>
 
     <div class="container">
-        <!-- unified 5 boxes with single-line black border (applied via .mach-box) -->
+        <!-- unified 5 boxes with single-line black border -->
         <div class="machines">
             <div class="mach-box" onclick="openModal('compressor-modal')">
                 <i class="fas fa-compress-arrows-alt mach-icon"></i>
@@ -620,19 +611,19 @@
 
         <div class="main-area">
             <div class="left-stack">
-                <!-- ✅ BOULDER OPS & DISPATCH with DISTINCT BORDER & MODERN STYLE ✅ -->
+                <!-- BOULDER OPS & DISPATCH with distinct border & NO unit suffixes anywhere -->
                 <div class="merged-ops-prod">
                     <div class="section-title"><i class="fas fa-mountain-city"></i> Boulder Operations & Dispatch Update</div>
                     <div class="boulder-row">
                         <div class="boulder-item"><i class="fas fa-arrows-spin"></i><div class="label">Trips Today</div><div class="value" id="trips">86</div></div>
-                        <div class="boulder-item"><i class="fas fa-weight-scale"></i><div class="label">Boulder Tonnage</div><div class="value" id="boulder-today">2074.8 Mt</div></div>
+                        <div class="boulder-item"><i class="fas fa-weight-scale"></i><div class="label">Boulder Tonnage</div><div class="value" id="boulder-today">2074.8</div></div>
                         <div class="boulder-item" onclick="openModal('feeder-modal')"><i class="fas fa-bolt"></i><div class="label">Feeder to Plant</div><div class="value" id="boulder-feeder">2376.74</div><div class="trip-count" id="feeder-count">98 Trips</div></div>
                     </div>
                     <div class="dispatch-grid">
-                        <div class="dispatch-item"><div class="label">10 mm</div><div class="value" id="d10">309.84</div><span style="font-size:0.7rem;">MT</span></div>
-                        <div class="dispatch-item"><div class="label">20 mm</div><div class="value" id="d20">529.94</div><span style="font-size:0.7rem;">MT</span></div>
-                        <div class="dispatch-item"><div class="label">50 mm</div><div class="value" id="dsand">226.4</div><span style="font-size:0.7rem;">MT</span></div>
-                        <div class="dispatch-item"><div class="label">R- Sand</div><div class="value" id="dmsand">962.3</div><span style="font-size:0.7rem;">MT</span></div>
+                        <div class="dispatch-item"><div class="label">10 mm</div><div class="value" id="d10">309.84</div></div>
+                        <div class="dispatch-item"><div class="label">20 mm</div><div class="value" id="d20">529.94</div></div>
+                        <div class="dispatch-item"><div class="label">50 mm</div><div class="value" id="dsand">226.4</div></div>
+                        <div class="dispatch-item"><div class="label">R- Sand</div><div class="value" id="dmsand">962.3</div></div>
                     </div>
                     <div class="stat-card" onclick="openModal('dispatch-vehicles-modal')">
                         <span class="label"><i class="fas fa-truck-ramp-box"></i> Total Vehicles Dispatched</span>
@@ -646,7 +637,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Quarry Live Vehicle Movement Map - single navy blue border applied via .map-container class -->
+            <!-- Quarry Live Vehicle Movement Map - single navy blue border -->
             <div class="map-container" onclick="openEnhancedMapModal()">
                 <div class="map-header"><i class="fas fa-location-dot"></i> Quarry Live Vehicle Movement</div>
                 <div class="map-image"><img src="https://raw.githubusercontent.com/bimal-bp/LIve_Vehicle_movement/main/vehicles.jpeg" alt="Quarry traffic heatmap"></div>
@@ -660,11 +651,11 @@
         </div>
     </div>
 
-    <!-- MODALS - all modals are properly closed and structured -->
+    <!-- MODALS - all text cleaned from any 'MT' or 'T' unit indicators -->
     <div id="ftd-mtd-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header"><h2><i class="fas fa-chart-line"></i> Plant & MIS Reports</h2><button class="close-btn" onclick="closeModal('ftd-mtd-modal')">&times;</button></div>
-            <div class="modal-body"><div style="text-align:center;"><i class="fas fa-chart-pie fa-3x" style="color:#2c6e9e;"></i><p style="margin:15px 0; font-weight:500;">FTD / MTD Dashboard — March Summary</p><div style="background:#eef3fa; border-radius: 20px; padding: 16px;"><p>✅ Plant Utilization: 86%</p><p>✅ Total Crusher Feed: 47,200 MT (MTD)</p><p>✅ Avg Dispatch / Day: 152 vehicles</p></div><button class="stat-card" style="margin-top:18px; width:100%;" onclick="alert('Full report PDF will be generated')">📊 Generate Full MIS Report</button></div></div>
+            <div class="modal-body"><div style="text-align:center;"><i class="fas fa-chart-pie fa-3x" style="color:#2c6e9e;"></i><p style="margin:15px 0; font-weight:500;">FTD / MTD Dashboard — March Summary</p><div style="background:#eef3fa; border-radius: 20px; padding: 16px;"><p>✅ Plant Utilization: 86%</p><p>✅ Total Crusher Feed: 47,200</p><p>✅ Avg Dispatch / Day: 152 vehicles</p></div><button class="stat-card" style="margin-top:18px; width:100%;" onclick="alert('Full report PDF will be generated')">📊 Generate Full MIS Report</button></div></div>
         </div>
     </div>
 
@@ -692,7 +683,7 @@
     <div id="feeder-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header"><h2>Feeder Analytics</h2><button class="close-btn" onclick="closeModal('feeder-modal')">&times;</button></div>
-            <div class="modal-body"><p><strong>Total trips:</strong> 98 | <strong>Tonnage fed:</strong> 2376.74 MT | Avg per trip: 24.2 MT</p><p>Hopper throughput: 345 TPH (peak)</p></div>
+            <div class="modal-body"><p><strong>Total trips:</strong> 98 | <strong>Tonnage fed:</strong> 2376.74 | Avg per trip: 24.2</p><p>Hopper throughput: 345 TPH (peak)</p></div>
         </div>
     </div>
 
@@ -706,7 +697,7 @@
     <div id="production-stock-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header"><h2>Stock & Production</h2><button class="close-btn" onclick="closeModal('production-stock-modal')">&times;</button></div>
-            <div class="modal-body"><p>📦 Today's Production: 2,120 MT | Godown Stock: 44,781 MT</p><p>📊 Crushed aggregates: 10mm: 310 MT, 20mm: 530 MT, R-Sand: 962 MT</p></div>
+            <div class="modal-body"><p>📦 Today's Production: 2,120 | Godown Stock: 44,781</p><p>📊 Crushed aggregates: 10mm: 310, 20mm: 530, R-Sand: 962</p></div>
         </div>
     </div>
 
@@ -724,7 +715,6 @@
             if(modalEl) modalEl.style.display = 'none'; 
         }
         function openEnhancedMapModal() { 
-            // Opens the same MIS report modal when map is clicked (consistent with previous behavior)
             openModal('ftd-mtd-modal'); 
         }
 
@@ -734,6 +724,7 @@
             document.getElementById('plantStartTime').innerText = "07:45 AM";
             document.getElementById('plantBreakdown').innerHTML = "2.5 hrs (Crusher)";
             
+            // All numeric values as plain numbers - NO 'MT', 'T', or any weight suffix
             const values = {
                 comp: 11, 
                 tipper: "10/12", 
@@ -754,6 +745,25 @@
             }
             const feederCountSpan = document.getElementById('feeder-count');
             if (feederCountSpan) feederCountSpan.innerText = "98 Trips";
+            
+            // Final cleanup: ensure no hidden 'MT' or 'T' appears anywhere in main values
+            const boulderTonnage = document.getElementById('boulder-today');
+            if (boulderTonnage && boulderTonnage.innerText.includes('MT')) {
+                boulderTonnage.innerText = boulderTonnage.innerText.replace(/MT/gi, '').trim();
+            }
+            const feederVal = document.getElementById('boulder-feeder');
+            if (feederVal && feederVal.innerText.includes('MT')) {
+                feederVal.innerText = feederVal.innerText.replace(/MT/gi, '').trim();
+            }
+            // Clean any leftover 'T' or 'MT' from dispatch items (though we set clean values)
+            const dispatchItems = ['d10', 'd20', 'dsand', 'dmsand'];
+            dispatchItems.forEach(id => {
+                let el = document.getElementById(id);
+                if (el) {
+                    let cleanText = el.innerText.replace(/[MTmt]+/g, '').replace(/T\b/g, '').trim();
+                    if (cleanText !== el.innerText) el.innerText = cleanText;
+                }
+            });
         });
 
         window.onclick = function(e) { 
