@@ -96,6 +96,7 @@
             gap: 18px;
         }
 
+        /* SINGLE LINE BLACK BORDER FOR ALL TOP 5 BOXES - exactly as requested */
         .mach-box {
             background: var(--card-white);
             border-radius: 28px;
@@ -103,7 +104,8 @@
             text-align: center;
             transition: all 0.25s ease;
             box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
+            /* ✨ UPDATED: Single solid black border for all 5 cards ✨ */
+            border: 1px solid #000000;
             position: relative;
             backdrop-filter: blur(0px);
         }
@@ -111,20 +113,14 @@
         .mach-box:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
-            border-color: #cbdde6;
+            /* keep black border on hover, just subtle enhancement */
+            border-color: #000000;
             background: #ffffff;
         }
 
+        /* remove the bottom gradient line that was present before */
         .mach-box::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 10%;
-            width: 80%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-primary), #6c9ebd);
-            border-radius: 4px;
-            opacity: 0.7;
+            display: none;
         }
 
         .mach-icon {
@@ -583,7 +579,7 @@
     </div>
 
     <div class="container">
-        <!-- unified 5 boxes -->
+        <!-- unified 5 boxes with single-line black border (applied via .mach-box) -->
         <div class="machines">
             <div class="mach-box" onclick="openModal('compressor-modal')">
                 <i class="fas fa-compress-arrows-alt mach-icon"></i>
